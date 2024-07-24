@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5434/fitoverse
-    username: postgres
-    password: mohanraj
+    url: jdbc:postgresql://c3nv2ev86aje4j.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d6vvdlv1a0klf5
+    username: u4r4r6jfb177ac
+    password: p94beb11e50714f127555f875ec44a7a0219ed649b9be0e47c825e10ea3b130f1
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
