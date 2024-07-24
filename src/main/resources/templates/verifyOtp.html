@@ -5,25 +5,71 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .verify-background {
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .verify-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px; /* Increased width for more content */
+        }
+        .form-group label {
+            font-size: 1rem;
+        }
+        .form-control {
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .verify-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            .form-group label,
+            .form-control {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid verify-background">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-4 verify-container">
-            <h2 class="text-center mb-4">Verify OTP</h2>
-            <form action="/api/v1/verify-otp" method="post">
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="text" class="form-control input-lg" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
-                </div>
-                <div class="form-group">
-                    <label for="otp">OTP</label>
-                    <input type="text" class="form-control input-lg" id="otp" name="otp" placeholder="Enter the OTP" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Verify OTP</button>
-            </form>
-        </div>
+    <div class="verify-container">
+        <h2 class="text-center mb-4">Verify Your Phone Number</h2>
+        <form action="/api/v1/verify-otp" method="post">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="otp">Enter OTP</label>
+                <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter the OTP sent to your phone" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Verify OTP</button>
+        </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var phoneNumber = urlParams.get('phoneNumber');
+        if (phoneNumber) {
+            document.getElementById('phoneNumber').value = phoneNumber;
+        }
+    });
+</script>
 </body>
 </html>

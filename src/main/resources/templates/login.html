@@ -5,21 +5,65 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .login-background {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px; /* Limit the width for large screens */
+        }
+        .form-group label {
+            font-size: 1rem;
+        }
+        .form-control {
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            .form-group label,
+            .form-control {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid login-background">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-4 login-container">
-            <h2 class="text-center mb-4">Welcome to Fitoverse</h2>
-            <form action="/api/v1/send-otp" method="post">
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="text" class="form-control input-lg" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Send OTP</button>
-            </form>
-        </div>
+    <div class="login-container">
+        <h2 class="text-center mb-4">Welcome to Fitoverse</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control input-lg" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Send OTP</button>
+        </form>
     </div>
 </div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var phoneNumber = document.getElementById('phoneNumber').value;
+        window.location.href = '/api/v1/verifyOtp?phoneNumber=' + encodeURIComponent(phoneNumber);
+    });
+</script>
 </body>
 </html>
