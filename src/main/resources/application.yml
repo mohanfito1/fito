@@ -16,7 +16,7 @@ spring:
 
 twilio:
   account-sid: ACec8a1ed9e4ef4718c49e14ac1dda8733
-  auth-token: 48edffa48f0cdb9f6abddfc9fbc9a9b3
+  auth-token: 10dd3767dc6280af3d383d3c15e11f02
   phone-number: +14173192867
 
 server:
