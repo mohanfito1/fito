@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - Fitoverse</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container-fluid login-background">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-4 login-container">
+            <h2 class="text-center mb-4">Welcome to Fitoverse</h2>
+            <form action="/api/v1/send-otp" method="post">
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control input-lg" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send OTP</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

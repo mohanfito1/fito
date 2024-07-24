@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/fitoverse
+    username: postgres
+    password: mohanraj
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+twilio:
+  account-sid: ACec8a1ed9e4ef4718c49e14ac1dda8733
+  auth-token: 48edffa48f0cdb9f6abddfc9fbc9a9b3
+  phone-number: +14173192867
+
+server:
+  port: 8084
