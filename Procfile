@@ -1,0 +1,1 @@
+web: java -jar target/fitoverse1.1-0.0.1-SNAPSHOT.jar
