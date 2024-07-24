@@ -20,4 +20,4 @@ twilio:
   phone-number: +14173192867
 
 server:
-  port: 8084
+  port: ${PORT:8084}
